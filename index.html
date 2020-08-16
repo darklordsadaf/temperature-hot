@@ -44,21 +44,34 @@
 
         document.getElementById('enterBtn').addEventListener('click', function(){
             const cityName = document.getElementById("city-name").value;
-            getCity(cityName);
+                if(cityName == undefined){
+                    alert('wrong city');
+                }
+                else{
+                    getCity(cityName); 
+                }
+            
         })
 
         function getCity(city){
             fetch(`${api.url}${city}&units=metric&appid=2f5c48c511b8d3e986069e59e9099f6f`)
             .then(res => res.json())
             .then(data => {
+                if(data.name == undefined){
+                    alert('Location not Found');
+                }
+                else{
                 document.getElementById('city').innerText = data.name;
                 document.getElementById('weather').innerText = data.weather[0].main;
                 document.getElementById('temp').innerText = data.main.temp;
                 const icon = data.weather[0].icon;
                 document.getElementById('icon').src = `https://openweathermap.org/img/wn/${icon}@2x.png`
                 console.log(data);
+                }
+                
+                               
         })
-        }
+    }
         
         
     
