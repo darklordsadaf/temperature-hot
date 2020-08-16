@@ -44,13 +44,7 @@
 
         document.getElementById('enterBtn').addEventListener('click', function(){
             const cityName = document.getElementById("city-name").value;
-                if(cityName == undefined){
-                    alert('wrong city');
-                }
-                else{
-                    getCity(cityName); 
-                }
-            
+                    getCity(cityName);            
         })
 
         function getCity(city){
