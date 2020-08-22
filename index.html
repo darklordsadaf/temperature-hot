@@ -58,7 +58,8 @@
                 document.getElementById('city').innerText = data.name;
                 document.getElementById('weather').innerText = data.weather[0].main;
                 const temp = data.main.temp;
-                const tempCel = temp + "°C";
+                const tempMath = Math.round(temp);
+                const tempCel = tempMath + "°C";
                 document.getElementById('temp').innerText = tempCel;
                 const icon = data.weather[0].icon;
                 document.getElementById('icon').src = `https://openweathermap.org/img/wn/${icon}@2x.png`
